@@ -60,8 +60,7 @@ const subscribeAddress = async ({ coin = "bitcoin", id = getId(), address = "" }
                 resolve({id, error: false, method: "subscribeAddress", data});
             });
 
-            const response = await api.mainClient[coin].blockchainScripthash_subscribe(address);
-            resolve({id, error: false, method: "subscribeAddress", data: response});
+            api.mainClient[coin].blockchainScripthash_subscribe(address);
         } catch (e) {
             resolve({id, error: true, method: "subscribeAddress", data: e});
         }
